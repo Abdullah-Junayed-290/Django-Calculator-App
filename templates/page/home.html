@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}
+Calculator
+{% endblock %}
+
+{% block content %}
+<h1 class="text-3xl mt-10 text-center text-blue-400 mb-10">Welcome to Calculator App</h1>
+<div>
+  <form 
+  class="flex flex-wrap flex-col justify-center items-center"
+  method="post" 
+  accept-charset="utf-8"
+  >
+    {% csrf_token %}
+    
+    <input
+    class="text-black text-center p-2 mb-5 rounded-3xl"
+    type="number" 
+    name="fist_number"
+    placeholder="Enter 1st Number here..."
+    />
+    
+    <select 
+    class="text-black text-center p-2 mb-5 rounded-3xl"
+    name="operation"
+    >
+      <option value="addition">
+        Addition
+      </option>
+      
+      <option value="subtraction">
+        Subtraction
+      </option>
+      
+      <option value="multiplication">
+        Multiplication
+      </option>
+      
+      <option value="divition">
+        Divition
+      </option>
+    </select>
+    
+    <input 
+    class="text-black text-center p-2 mb-5 rounded-3xl"
+    type="number" 
+    name="second_number" 
+    placeholder="Enter 2nd Number here..."
+    />
+    
+    <input 
+    class="text-black text-center p-2 mb-5 rounded-3xl"
+    type="number" 
+    readonly="true"
+    placeholder="Result"
+    name="result" 
+    value="{{result}}" 
+    />
+    
+    <br />
+    
+    <button
+    class="bg-blue-300 text-center px-16 py-2 mb-5 rounded-3xl"
+    type="submit"
+    >
+      = -> Equal to?
+    </button>
+  </form>
+</div>
+{% endblock %}
